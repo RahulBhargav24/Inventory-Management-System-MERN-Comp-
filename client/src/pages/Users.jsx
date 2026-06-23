@@ -188,11 +188,11 @@ const Users = () => {
                     <tr key={u._id}>
                       <td>
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center overflow-hidden flex-shrslate-0">
+                          <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center overflow-hidden flex-shrslate-0">
                             {u.avatar ? (
                               <img src={u.avatar} alt={u.name} className="w-full h-full object-cover" />
                             ) : (
-                              <span className="text-indigo-600 font-bold text-sm">
+                              <span className="text-emerald-700 font-bold text-sm">
                                 {u.name.charAt(0).toUpperCase()}
                               </span>
                             )}
@@ -200,7 +200,7 @@ const Users = () => {
                           <div>
                             <p className="font-medium text-slate-900 text-sm">{u.name}</p>
                             {u._id === currentUser?._id && (
-                              <span className="text-xs text-indigo-500">(You)</span>
+                              <span className="text-xs text-emerald-600">(You)</span>
                             )}
                           </div>
                         </div>
@@ -221,7 +221,7 @@ const Users = () => {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => { setEditItem(u); setModalOpen(true); }}
-                            className="p-1.5 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                            className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             <FiEdit2 className="w-4 h-4" />
                           </button>

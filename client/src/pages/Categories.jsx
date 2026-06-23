@@ -199,7 +199,7 @@ const Categories = () => {
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => openEdit(cat)}
-                            className="p-1.5 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                            className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                           >
                             <FiEdit2 className="w-4 h-4" />
                           </button>

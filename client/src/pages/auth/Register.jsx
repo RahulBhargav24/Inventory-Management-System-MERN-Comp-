@@ -7,6 +7,26 @@ import { useAuth } from '../../context/AuthContext';
 import { getErrorMessage } from '../../utils/helpers';
 import Spinner from '../../components/ui/Spinner';
 
+const pageBackground = {
+  background:
+    'radial-gradient(ellipse 85% 55% at 12% 8%,  rgba(16,185,129,0.14) 0%, transparent 65%),' +
+    'radial-gradient(ellipse 65% 50% at 88% 92%, rgba(5,150,105,0.10)  0%, transparent 65%),' +
+    'radial-gradient(ellipse 50% 40% at 55% 50%, rgba(16,185,129,0.05) 0%, transparent 70%),' +
+    '#f0fdf4',
+  backgroundAttachment: 'fixed',
+};
+
+const glassCard = {
+  background: 'rgba(255, 255, 255, 0.72)',
+  backdropFilter: 'blur(30px)',
+  WebkitBackdropFilter: 'blur(30px)',
+  border: '1px solid rgba(255, 255, 255, 0.72)',
+  boxShadow:
+    'inset 0 1px 0 rgba(255,255,255,0.95),' +
+    '0 16px 48px rgba(15,23,42,0.1),' +
+    '0 4px 12px rgba(15,23,42,0.06)',
+};
+
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -30,37 +50,46 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1117] flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6" style={pageBackground}>
       <div className="w-full max-w-sm">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center">
+
+        {/* Logo */}
+        <div className="flex items-center justify-center gap-2.5 mb-8">
+          <div
+            className="w-9 h-9 rounded-xl flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(180deg, #10B981 0%, #059669 100%)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.28), 0 4px 12px rgba(5,150,105,0.4)',
+            }}
+          >
             <FiBarChart2 className="w-5 h-5 text-white" />
           </div>
-          <span className="text-white font-bold text-xl">InvenPro</span>
+          <span className="text-[#0F172A] font-semibold text-xl">InvenPro</span>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <h2 className="text-2xl font-bold text-slate-800">Create account</h2>
-          <p className="text-slate-500 text-sm mt-1 mb-6">Fill in your details to get started</p>
+        {/* Glass form card */}
+        <div className="rounded-2xl p-8" style={glassCard}>
+          <h2 className="text-2xl font-semibold text-[#0F172A] tracking-tight">Create account</h2>
+          <p className="text-[#64748B] text-sm mt-1.5 mb-7">Fill in your details to get started</p>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name</label>
+              <label className="block text-sm font-medium text-[#0F172A] mb-1.5">Full Name</label>
               <div className="relative">
-                <FiUser className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <FiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8] w-4 h-4" />
                 <input
                   {...register('name', { required: 'Name is required', minLength: { value: 2, message: 'Too short' } })}
                   placeholder="John Doe"
                   className="input-field pl-10"
                 />
               </div>
-              {errors.name && <p className="text-rose-500 text-xs mt-1">{errors.name.message}</p>}
+              {errors.name && <p className="text-[#DC2626] text-xs mt-1.5">{errors.name.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+              <label className="block text-sm font-medium text-[#0F172A] mb-1.5">Email</label>
               <div className="relative">
-                <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <FiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8] w-4 h-4" />
                 <input
                   {...register('email', {
                     required: 'Email is required',
@@ -71,13 +100,13 @@ const Register = () => {
                   className="input-field pl-10"
                 />
               </div>
-              {errors.email && <p className="text-rose-500 text-xs mt-1">{errors.email.message}</p>}
+              {errors.email && <p className="text-[#DC2626] text-xs mt-1.5">{errors.email.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-[#0F172A] mb-1.5">Password</label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8] w-4 h-4" />
                 <input
                   {...register('password', {
                     required: 'Password is required',
@@ -87,17 +116,21 @@ const Register = () => {
                   placeholder="••••••••"
                   className="input-field pl-10 pr-10"
                 />
-                <button type="button" onClick={() => setShowPassword((s) => !s)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((s) => !s)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8] hover:text-[#64748B] transition-colors duration-200"
+                >
                   {showPassword ? <FiEyeOff className="w-4 h-4" /> : <FiEye className="w-4 h-4" />}
                 </button>
               </div>
-              {errors.password && <p className="text-rose-500 text-xs mt-1">{errors.password.message}</p>}
+              {errors.password && <p className="text-[#DC2626] text-xs mt-1.5">{errors.password.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Confirm Password</label>
+              <label className="block text-sm font-medium text-[#0F172A] mb-1.5">Confirm Password</label>
               <div className="relative">
-                <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <FiLock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#94A3B8] w-4 h-4" />
                 <input
                   {...register('confirmPassword', {
                     required: 'Please confirm password',
@@ -108,18 +141,20 @@ const Register = () => {
                   className="input-field pl-10"
                 />
               </div>
-              {errors.confirmPassword && <p className="text-rose-500 text-xs mt-1">{errors.confirmPassword.message}</p>}
+              {errors.confirmPassword && <p className="text-[#DC2626] text-xs mt-1.5">{errors.confirmPassword.message}</p>}
             </div>
 
-            <button type="submit" disabled={loading} className="btn-primary w-full flex items-center justify-center gap-2 py-2.5 mt-2">
+            <button type="submit" disabled={loading} className="btn-primary w-full py-2.5 mt-1">
               {loading && <Spinner size="sm" className="border-white border-t-transparent" />}
               {loading ? 'Creating account...' : 'Create Account'}
             </button>
           </form>
 
-          <p className="text-center text-sm text-slate-500 mt-6">
+          <p className="text-center text-sm text-[#64748B] mt-7">
             Already have an account?{' '}
-            <Link to="/login" className="text-indigo-600 font-semibold hover:underline">Sign in</Link>
+            <Link to="/login" className="text-[#059669] font-semibold hover:text-[#047857] transition-colors duration-200">
+              Sign in
+            </Link>
           </p>
         </div>
       </div>

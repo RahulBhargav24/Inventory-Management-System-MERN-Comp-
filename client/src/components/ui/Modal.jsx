@@ -13,13 +13,22 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className={`modal-content ${sizes[size]}`} onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
-          <h2 className="text-base font-bold text-slate-800">{title}</h2>
-          <button onClick={onClose} className="p-1.5 hover:bg-slate-100 rounded-lg transition-colors">
-            <FiX className="w-5 h-5 text-slate-500" />
+      <div
+        className={`modal-content ${sizes[size]}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#F1F5F9]">
+          <h2 className="text-base font-semibold text-[#0F172A]">{title}</h2>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-[#64748B] hover:bg-slate-100 hover:text-[#0F172A] transition-all duration-200"
+          >
+            <FiX className="w-4 h-4" />
           </button>
         </div>
+
+        {/* Body */}
         <div className="px-6 py-5">{children}</div>
       </div>
     </div>

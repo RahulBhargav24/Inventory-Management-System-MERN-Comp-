@@ -79,9 +79,9 @@ const PurchaseOrderForm = ({ defaultValues, onSubmit, loading, onClose, supplier
         </div>
 
         <div className="flex items-end">
-          <div className="w-full bg-indigo-50 border border-indigo-100 rounded-lg p-3">
-            <p className="text-xs text-indigo-500 font-medium">Total Cost</p>
-            <p className="text-xl font-bold text-indigo-700 mt-0.5">{formatCurrency(total)}</p>
+          <div className="w-full bg-emerald-50 border border-emerald-100 rounded-lg p-3">
+            <p className="text-xs text-emerald-600 font-medium">Total Cost</p>
+            <p className="text-xl font-bold text-emerald-700 mt-0.5">{formatCurrency(total)}</p>
           </div>
         </div>
 
@@ -121,7 +121,7 @@ const UpdateStatusForm = ({ order, onSubmit, loading, onClose }) => {
         </div>
         <div className="flex justify-between text-sm font-bold border-t border-slate-200 pt-2 mt-2">
           <span className="text-slate-600">Total Cost</span>
-          <span className="text-indigo-600">{formatCurrency(order.totalCost)}</span>
+          <span className="text-emerald-600">{formatCurrency(order.totalCost)}</span>
         </div>
       </div>
 
@@ -131,7 +131,7 @@ const UpdateStatusForm = ({ order, onSubmit, loading, onClose }) => {
           {STATUSES.map(({ value, label, icon: Icon, color }) => (
             <label key={value} className="cursor-pointer">
               <input type="radio" {...register('status')} value={value} className="sr-only peer" />
-              <div className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all peer-checked:border-indigo-500 peer-checked:bg-indigo-50 border-slate-200 hover:border-slate-300`}>
+              <div className={`flex items-center gap-2 p-3 rounded-lg border-2 transition-all peer-checked:border-emerald-500 peer-checked:bg-emerald-50 border-slate-200 hover:border-slate-300`}>
                 <Icon className={`w-4 h-4 ${color.split(' ')[0]}`} />
                 <span className="text-sm font-medium text-slate-700">{label}</span>
               </div>
@@ -282,7 +282,7 @@ const PurchaseOrders = () => {
             <button
               key={value}
               onClick={() => { setFilterStatus(filterStatus === value ? '' : value); resetPage(); }}
-              className={`bg-white rounded-xl border p-4 text-left transition-all hover:shadow-md ${filterStatus === value ? 'border-indigo-400 ring-1 ring-indigo-300' : 'border-slate-200'}`}
+              className={`bg-white rounded-xl border p-4 text-left transition-all hover:shadow-md ${filterStatus === value ? 'border-emerald-400 ring-1 ring-emerald-300' : 'border-slate-200'}`}
             >
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 ${color}`}>
                 <Icon className="w-4 h-4" />

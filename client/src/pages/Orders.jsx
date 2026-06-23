@@ -77,7 +77,7 @@ const CreateOrderForm = ({ onSubmit, loading, onClose, products }) => {
       </div>
 
       {selectedProduct && (
-        <div className="bg-indigo-50 rounded-lg p-4">
+        <div className="bg-emerald-50 rounded-lg p-4">
           <div className="flex justify-between text-sm">
             <span className="text-slate-600">Unit Price:</span>
             <span className="font-medium">{formatCurrency(selectedProduct.price)}</span>
@@ -86,9 +86,9 @@ const CreateOrderForm = ({ onSubmit, loading, onClose, products }) => {
             <span className="text-slate-600">Quantity:</span>
             <span className="font-medium">× {watchQty || 1}</span>
           </div>
-          <div className="flex justify-between font-bold text-base mt-2 pt-2 border-t border-indigo-200">
+          <div className="flex justify-between font-bold text-base mt-2 pt-2 border-t border-emerald-200">
             <span>Total Amount:</span>
-            <span className="text-indigo-600">{formatCurrency(total)}</span>
+            <span className="text-emerald-600">{formatCurrency(total)}</span>
           </div>
         </div>
       )}
@@ -120,7 +120,7 @@ const UpdateStatusForm = ({ order, onSubmit, loading, onClose }) => {
         </div>
         <div className="flex justify-between text-sm">
           <span className="text-slate-500">Total:</span>
-          <span className="font-semibold text-indigo-600">{formatCurrency(order.totalAmount)}</span>
+          <span className="font-semibold text-emerald-600">{formatCurrency(order.totalAmount)}</span>
         </div>
       </div>
       <div>
@@ -350,7 +350,7 @@ const Orders = () => {
                           {isAdmin && (
                             <button
                               onClick={() => setEditItem(order)}
-                              className="p-1.5 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                              className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
                               title="Update Status"
                             >
                               <FiEdit2 className="w-4 h-4" />

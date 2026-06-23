@@ -90,11 +90,11 @@ const Profile = () => {
         {/* Avatar */}
         <div className="flex items-center gap-5">
           <div className="relative">
-            <div className="w-20 h-20 rounded-2xl bg-indigo-100 flex items-center justify-center overflow-hidden">
+            <div className="w-20 h-20 rounded-2xl bg-emerald-100 flex items-center justify-center overflow-hidden">
               {avatarPreview ? (
                 <img src={avatarPreview} alt="Avatar" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-indigo-600 text-2xl font-bold">
+                <span className="text-emerald-700 text-2xl font-bold">
                   {user?.name?.charAt(0).toUpperCase()}
                 </span>
               )}
@@ -102,7 +102,7 @@ const Profile = () => {
             <button
               type="button"
               onClick={() => fileRef.current.click()}
-              className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-600 rounded-full flex items-center justify-center text-white hover:bg-indigo-700 transition-colors shadow-lg"
+              className="absolute -bottom-1 -right-1 w-7 h-7 bg-emerald-600 rounded-full flex items-center justify-center text-white hover:bg-emerald-700 transition-colors shadow-lg"
             >
               <FiCamera className="w-3.5 h-3.5" />
             </button>

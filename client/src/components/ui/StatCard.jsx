@@ -1,38 +1,42 @@
 import { FiTrendingUp, FiTrendingDown } from 'react-icons/fi';
 
-const StatCard = ({ title, value, icon: Icon, color, trend, subtitle }) => {
-  const colorMap = {
-    indigo: 'bg-indigo-50 text-indigo-600',
-    blue: 'bg-sky-50 text-sky-600',
-    green: 'bg-emerald-50 text-emerald-600',
-    purple: 'bg-violet-50 text-violet-600',
-    orange: 'bg-orange-50 text-orange-600',
-    red: 'bg-rose-50 text-rose-600',
-    yellow: 'bg-amber-50 text-amber-600',
-    teal: 'bg-teal-50 text-teal-600',
-    brand: 'bg-indigo-50 text-indigo-600',
-  };
+const colorMap = {
+  indigo:  'bg-emerald-50 text-[#059669]',
+  blue:    'bg-sky-50 text-sky-600',
+  green:   'bg-emerald-50 text-emerald-600',
+  purple:  'bg-violet-50 text-violet-600',
+  orange:  'bg-orange-50 text-orange-600',
+  red:     'bg-rose-50 text-rose-600',
+  yellow:  'bg-amber-50 text-amber-600',
+  teal:    'bg-teal-50 text-teal-600',
+  brand:   'bg-emerald-50 text-[#059669]',
+};
 
-  return (
-    <div className="card hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-sm font-medium text-slate-500">{title}</p>
-          <p className="text-2xl font-bold text-slate-900 mt-1.5 tracking-tight">{value}</p>
-          {subtitle && <p className="text-xs text-slate-400 mt-1">{subtitle}</p>}
-        </div>
-        <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${colorMap[color] || colorMap.indigo}`}>
-          <Icon className="w-5 h-5" />
-        </div>
+const StatCard = ({ title, value, icon: Icon, color, trend, subtitle }) => (
+  <div
+    className="bg-white rounded-2xl border border-[#E2E8F0] p-5 transition-all duration-200 hover:border-slate-300"
+    style={{ boxShadow: '0 1px 3px rgba(15,23,42,0.06)' }}
+  >
+    <div className="flex items-start justify-between mb-4">
+      <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${colorMap[color] || colorMap.brand}`}>
+        <Icon className="w-[18px] h-[18px]" />
       </div>
       {trend !== undefined && (
-        <div className={`mt-3 flex items-center gap-1 text-xs font-semibold ${trend >= 0 ? 'text-emerald-600' : 'text-rose-500'}`}>
-          {trend >= 0 ? <FiTrendingUp className="w-3.5 h-3.5" /> : <FiTrendingDown className="w-3.5 h-3.5" />}
-          {Math.abs(trend)}% from last month
+        <div className={`flex items-center gap-0.5 text-xs font-semibold px-2 py-0.5 rounded-full
+          ${trend >= 0 ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-600'}`}
+        >
+          {trend >= 0
+            ? <FiTrendingUp className="w-3 h-3" />
+            : <FiTrendingDown className="w-3 h-3" />
+          }
+          {Math.abs(trend)}%
         </div>
       )}
     </div>
-  );
-};
+    <p className="text-[22px] font-semibold text-[#0F172A] tracking-tight leading-none">{value}</p>
+    <p className="text-[#64748B] text-sm mt-1.5">{title}</p>
+    {subtitle && <p className="text-[#94A3B8] text-xs mt-1">{subtitle}</p>}
+  </div>
+);
 
 export default StatCard;
